@@ -16,11 +16,13 @@
     "ts-loader": "^3.1.0",
     "typescript": "^2.5.3",
     "webpack": "1.14.0",
+    "webpack-dev-server": "1.9.0",
     "yaml-loader": "^0.5.0"
   },
   "scripts": {
     "webpackfromterm": "webpack ./app.js ./bundle.js",
-    "webpack": "webpack"
+    "webpack": "webpack",
+    "webpack-dev-server": "webpack-dev-server"
   },
   "dependencies": {
     "babel-loader": "6",
