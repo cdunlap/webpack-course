@@ -15,7 +15,7 @@ module.exports = {
         name: 'Mason',
         age: 1
       }
-    ]
+    ];
   },
   getExchangeRates: function (base_currency) {
     return $.getJSON('http://api.fixer.io/latest?base=' + base_currency);

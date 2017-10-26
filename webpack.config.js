@@ -7,11 +7,22 @@ module.exports = {
     filename: 'bundle.js'
   },
   module: {
+    preLoaders: [
+      {
+        test: /\.js$/,
+        loader: 'eslint-loader',
+        exclude: /node_modules/,
+        query: require(path.resolve(__dirname, 'eslint.config.js'))
+      }
+    ],
     loaders: [
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        exclude: /node_modules/
+        exclude: /node_modules/,
+        query: {
+          presets: ['es2015']
+        }
       }
     ]
   }
