@@ -13,12 +13,12 @@ export default class MainComponent extends Component {
     return (
       <div className="container">
         <div>
-          <h1>Users</h1>
+          <h1><i className="fa fa-user"></i> Users</h1>
           <UsersComponent/>
         </div>
         
         <div>
-          <h1>Rates</h1>
+          <h1><i className="fa fa-money"></i> Rates</h1>
           <FxRatesComponent baseCurrency="USD"/>
         </div>
       </div>
