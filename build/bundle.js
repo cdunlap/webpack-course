@@ -49,6 +49,7 @@
 	var api = __webpack_require__(1);
 	var $ = __webpack_require__(2);
 	var ReactApp = __webpack_require__(3);
+	var appConfig = __webpack_require__(37);
 
 	var users = api.getUsers();
 
@@ -31563,6 +31564,23 @@
 	}(_react.Component);
 
 	exports.default = UsersComponent;
+
+/***/ },
+/* 37 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var appConfig = __webpack_require__(38);
+	function print(prop) {
+	    console.log(prop);
+	}
+	print(appConfig.app.appOwner);
+
+
+/***/ },
+/* 38 */
+/***/ function(module, exports) {
+
+	module.exports = {"app":{"name":"learning webpack with yaml","appOwner":"Antonio","leadDev":{"name":"John Morris","email":"john.morris@company.com"},"appUsers":[{"company":"google","contact":"team@google.com"},{"company":"amazon","contact":"team@amazon.com"}],"supportTeam":{"email":"support@company.com","phoneNumber":"0123456789"},"keywords":["webpack","webapp","support","development"]}}
 
 /***/ }
 /******/ ]);
