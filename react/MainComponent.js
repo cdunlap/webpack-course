@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import UsersComponent from './users/UsersComponent';
 import FxRatesComponent from './fx/FxRatesComponent';
 
+require('../styles/main.scss');
+
 export default class MainComponent extends Component {
   constructor(props) {
     super(props);
