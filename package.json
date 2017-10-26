@@ -1,0 +1,21 @@
+{
+  "name": "webpack-course",
+  "version": "1.0.0",
+  "description": "Webpack Udemy Course",
+  "main": "index.js",
+  "author": "Cale Dunlap",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "webpack": "1.14.0"
+  },
+  "scripts": {
+    "webpackfromterm": "webpack ./app.js ./bundle.js",
+    "webpack": "webpack"
+  },
+  "dependencies": {
+    "babel-loader": "6",
+    "jquery": "^3.2.1"
+  }
+}
