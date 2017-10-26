@@ -1,5 +1,6 @@
 const api = require('./api.js');
 const $ = require('jquery');
+const ReactApp = require('./react/ReactApp.js');
 
 const users = api.getUsers();
 
