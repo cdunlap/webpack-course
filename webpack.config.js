@@ -17,7 +17,7 @@ module.exports = {
     ],
     loaders: [
       {
-        test: /.ya?ml$/,
+        test: /\.ya?ml$/,
         loaders: ['json-loader', 'yaml-loader'],
         include: path.resolve(__dirname, 'config')
       },
@@ -33,6 +33,16 @@ module.exports = {
         query: {
           presets: ['es2015', 'react']
         }
+      },
+      {
+        test: /\.css$/,
+        exclude: /node_modules/,
+        loaders: ['style-loader', 'css-loader']
+      },
+      {
+        test: /\.scss$/,
+        exclude: /node_modules/,
+        loaders: ['style-loader', 'css-loader', 'sass-loader']
       }
     ]
   },

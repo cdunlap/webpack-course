@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import UsersComponent from './UsersComponent';
-import FxRatesComponent from './FxRatesComponent';
+import UsersComponent from './users/UsersComponent';
+import FxRatesComponent from './fx/FxRatesComponent';
 
 export default class MainComponent extends Component {
   constructor(props) {

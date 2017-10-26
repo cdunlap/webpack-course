@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import api from '../api';
+import api from '../../api';
+
+require('./style.css');
 
 export default class UsersComponent extends Component {
   constructor(props) {
@@ -23,7 +25,9 @@ export default class UsersComponent extends Component {
     });
     
     return (
-      <div>{users}</div>
+      <div id="usersContainer">
+        {users}
+      </div>
     );
   }
 }
