@@ -11,7 +11,7 @@ export default class MainComponent extends Component {
   
   render() {
     return (
-      <div>
+      <div className="container">
         <div>
           <h1>Users</h1>
           <UsersComponent/>

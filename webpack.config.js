@@ -36,13 +36,15 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        exclude: /node_modules/,
         loaders: ['style-loader', 'css-loader']
       },
       {
         test: /\.scss$/,
-        exclude: /node_modules/,
         loaders: ['style-loader', 'css-loader', 'sass-loader']
+      },
+      {
+        test: /\.(png|woff|woff2|eot|ttf|svg)$/,
+        loader: 'url-loader?limit=100000'
       }
     ]
   },

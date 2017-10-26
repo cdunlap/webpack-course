@@ -21,7 +21,7 @@ export default class UsersComponent extends Component {
   render() {
     const users = this.state.users.map((user, index) => {
       const { name, age } = user;
-      return <p key={index}>{index} - {name} is {age}</p>;
+      return <p key={index}><span className="badge">{index}</span>{name} is {age}</p>;
     });
     
     return (
