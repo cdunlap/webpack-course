@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import api from '../../api';
+import api from 'api';
 
-require('./style.css');
+require('./style');
 
 export default class UsersComponent extends Component {
   constructor(props) {

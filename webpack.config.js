@@ -1,7 +1,7 @@
 var path = require('path');
 
 module.exports = {
-  entry: './app.js',
+  entry: __dirname,
   output: {
     path: path.join(__dirname, 'build'),
     filename: 'bundle.js'
@@ -47,6 +47,15 @@ module.exports = {
         loader: 'url-loader?limit=100000'
       }
     ]
+  },
+  resolve: {
+    extensions: ['.js', '.coffee', '', '.ts', '.css', '.scss'],
+    alias: {
+      api$: path.resolve(__dirname, 'api.js'),
+      styles: path.resolve(__dirname, 'styles'),
+      ts: path.resolve(__dirname, 'ts'),
+      welcomeUser$: path.resolve(__dirname, 'welcomeUser.coffee')
+    }
   },
   devServer: {
     contentBase: path.resolve(__dirname, 'build'),

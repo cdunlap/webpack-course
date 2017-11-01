@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import UsersComponent from './users/UsersComponent';
-import FxRatesComponent from './fx/FxRatesComponent';
+import UsersComponent from './UsersComponent';
+import FxRatesComponent from './FxRatesComponent';
 
-require('../styles/main.scss');
+require('styles/main');
 
 export default class MainComponent extends Component {
   constructor(props) {
