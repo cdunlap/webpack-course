@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import UsersComponent from './UsersComponent';
 import FxRatesComponent from './FxRatesComponent';
 
-require('styles/main');
+require('../entryPoints/main/styles/main');
 
 export default class MainComponent extends Component {
   constructor(props) {

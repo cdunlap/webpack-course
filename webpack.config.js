@@ -1,10 +1,14 @@
 var path = require('path');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-  entry: __dirname,
+  entry: {
+    main: path.resolve(__dirname, 'app', 'entryPoints', 'main'),
+    tweets: path.resolve(__dirname, 'app', 'entryPoints', 'tweets')
+  },
   output: {
     path: path.join(__dirname, 'build'),
-    filename: 'bundle.js'
+    filename: '[name].bundle.js'
   },
   module: {
     preLoaders: [
@@ -19,12 +23,12 @@ module.exports = {
       {
         test: /\.ya?ml$/,
         loaders: ['json-loader', 'yaml-loader'],
-        include: path.resolve(__dirname, 'config')
+        include: path.resolve(__dirname, 'app', 'config')
       },
       {
         test: /\.ts$/,
         loader: 'ts-loader',
-        include: path.resolve(__dirname, 'ts')
+        include: path.resolve(__dirname, 'app', 'ts')
       },
       {
         test: /\.js$/,
@@ -40,7 +44,8 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        loaders: ['style-loader', 'css-loader', 'sass-loader']
+        // loaders: ['style-loader', 'css-loader', 'sass-loader']
+        loader: ExtractTextPlugin.extract('style-loader', 'css-loader!sass-loader') // Sass -> CSS -> into a style chunk -> ExtractText
       },
       {
         test: /\.(png|woff|woff2|eot|ttf|svg)(\?.*$|$)/,
@@ -51,12 +56,14 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.coffee', '', '.ts', '.css', '.scss'],
     alias: {
-      api$: path.resolve(__dirname, 'api.js'),
-      styles: path.resolve(__dirname, 'styles'),
+      api$: path.resolve(__dirname, 'app', 'api.js'),
       ts: path.resolve(__dirname, 'ts'),
-      welcomeUser$: path.resolve(__dirname, 'welcomeUser.coffee')
+      reactApp$: path.resolve(__dirname, 'app', 'react')
     }
   },
+  plugins: [
+    new ExtractTextPlugin('main.css')
+  ],
   devServer: {
     contentBase: path.resolve(__dirname, 'build'),
     inline: true,
