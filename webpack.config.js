@@ -1,10 +1,12 @@
 var path = require('path');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var webpack = require('webpack');
 
 module.exports = {
   entry: {
     main: path.resolve(__dirname, 'app', 'entryPoints', 'main'),
-    tweets: path.resolve(__dirname, 'app', 'entryPoints', 'tweets')
+    tweets: path.resolve(__dirname, 'app', 'entryPoints', 'tweets'),
+    vendor: ['jquery', 'bootstrap', 'react', 'react-dom']
   },
   output: {
     path: path.join(__dirname, 'build'),
@@ -62,7 +64,16 @@ module.exports = {
     }
   },
   plugins: [
-    new ExtractTextPlugin('main.css')
+    new ExtractTextPlugin('main.css'),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor',
+      filename: 'vendor.bundle.js',
+      chunks: ['vendor']
+    }),
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery'
+    })
   ],
   devServer: {
     contentBase: path.resolve(__dirname, 'build'),
