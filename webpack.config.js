@@ -1,6 +1,7 @@
 var path = require('path');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var webpack = require('webpack');
+var htmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -10,7 +11,7 @@ module.exports = {
   },
   output: {
     path: path.join(__dirname, 'build'),
-    filename: '[name].bundle.js'
+    filename: '[name].[chunkhash].bundle.js'
   },
   module: {
     preLoaders: [
@@ -64,15 +65,26 @@ module.exports = {
     }
   },
   plugins: [
-    new ExtractTextPlugin('main.css'),
+    new ExtractTextPlugin('[name].[chunkhash].css'),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
-      filename: 'vendor.bundle.js',
+      filename: 'vendor.[chunkhash].bundle.js',
       chunks: ['vendor']
     }),
     new webpack.ProvidePlugin({
       $: 'jquery',
       jQuery: 'jquery'
+    }),
+    new htmlWebpackPlugin({
+      template: path.resolve(__dirname, 'app', 'entryPoints', 'main', 'index.html'),
+      hash: true,
+      chunks: ['vendor', 'main']
+    }),
+    new htmlWebpackPlugin({
+      template: path.resolve(__dirname, 'app', 'entryPoints', 'tweets', 'index.html'),
+      hash: true,
+      chunks: ['vendor', 'tweets'],
+      filename: 'tweets.html'
     })
   ],
   devServer: {
