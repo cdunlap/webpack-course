@@ -2,6 +2,7 @@ var path = require('path');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var webpack = require('webpack');
 var htmlWebpackPlugin = require('html-webpack-plugin');
+var cleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -85,6 +86,11 @@ module.exports = {
       hash: true,
       chunks: ['vendor', 'tweets'],
       filename: 'tweets.html'
+    }),
+    new cleanWebpackPlugin(['build', 'dummy'], {
+      root: path.resolve(__dirname),
+      verbose: true,
+      exclude: ['ignore.js']
     })
   ],
   devServer: {
