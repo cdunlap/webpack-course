@@ -3,6 +3,7 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var webpack = require('webpack');
 var htmlWebpackPlugin = require('html-webpack-plugin');
 var cleanWebpackPlugin = require('clean-webpack-plugin');
+var optimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin');
 
 module.exports = function (env) {
   return {
@@ -96,6 +97,9 @@ module.exports = function (env) {
         root: path.resolve(__dirname),
         verbose: true,
         exclude: ['ignore.js']
+      }),
+      new optimizeCssAssetsWebpackPlugin({
+        cssProcessorOptions: {discardComments: {removeAll: true}}
       })
     ],
     devServer: {
